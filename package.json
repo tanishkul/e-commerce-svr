@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tanishkulshrestha/e-commerce-svr.git"
+    "url": "git+https://github.com/tanishkul/e-commerce-svr.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tanishkulshrestha/e-commerce-svr/issues"
+    "url": "https://github.com/tanishkul/e-commerce-svr/issues"
   },
-  "homepage": "https://github.com/tanishkulshrestha/e-commerce-svr#readme",
+  "homepage": "https://github.com/tanishkul/e-commerce-svr#readme",
   "dependencies": {
     "@types/ejs": "2.6.3",
     "@types/express-jwt": "0.0.42",
