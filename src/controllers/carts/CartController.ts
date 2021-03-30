@@ -37,7 +37,6 @@ class CartController {
     }
   }
 
-
   /**
    * Update the Cart
    * @param {string} id - Id of Cart
@@ -48,12 +47,10 @@ class CartController {
     try {
       const { id } = req.params;
       const data = JSON.parse(JSON.stringify(req.body));
-      const result = await CartController.getInstance().cartService.update(
-        {
-          ...data,
-          id,
-        },
-      );
+      const result = await CartController.getInstance().cartService.update({
+        ...data,
+        id,
+      });
       return res.send(successHandler(SUCCESS_MSG.UPDATE, result));
     } catch (error) {
       next(error);
@@ -70,12 +67,10 @@ class CartController {
     try {
       const { id } = req.params;
       const data = JSON.parse(JSON.stringify(req.body));
-      const result = await CartController.getInstance().cartService.emptyCart(
-        {
-          ...data,
-          id,
-        },
-      );
+      const result = await CartController.getInstance().cartService.emptyCart({
+        ...data,
+        id,
+      });
       return res.send(successHandler(SUCCESS_MSG.UPDATE, result));
     } catch (error) {
       next(error);

@@ -37,8 +37,48 @@ class UserService {
     return result;
   }
 
+  public async getByQuery(query: any) {
+    let error = [];
+    const result = await this._userRepository.get(query);
+    if (!result) {
+      error = createErrorResponse(
+        RequestParameter.QUERY,
+        ErrorParameter.NO_USER,
+        '',
+        '',
+      );
+      throw {
+        data: error,
+        message: ERR_MSG.USER_DOES_NOT_EXIST,
+        type: 'BadRequestError',
+      };
+    }
+    return result;
+  }
+
   public async create(query: any) {
     return await this._userRepository.create(query);
+  }
+
+  public async login(query: any) {
+    let error = [];
+    const user = await this.getByQuery(query);
+
+    if (!user) {
+      error = createErrorResponse(
+        RequestParameter.BODY,
+        ErrorParameter.SOMETHING_WENT_BAD,
+        '',
+        '',
+      );
+      throw {
+        data: error,
+        message: ERR_MSG.DATA_NOT_FOUND,
+        type: 'BadRequestError',
+      };
+    }
+
+    return user;
   }
 
   public async update(query: any) {

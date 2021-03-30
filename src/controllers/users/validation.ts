@@ -43,11 +43,9 @@ const createValidation = {
   role: {
     custom: {
       errorMessage:
-        'role should be from specified list => ' +
-        roleArray.toString(),
+        'role should be from specified list => ' + roleArray.toString(),
       options: (value: string) => {
         const data = value ? isIn(roleArray, value) : true;
-        console.log('111111111111111', data);
         return value ? isIn(roleArray, value) : true;
       },
     },
@@ -58,6 +56,45 @@ const createValidation = {
     //     return value ? value : 'CUSTOMER';
     //   },
     // },
+    in: [RequestParameter.BODY],
+  },
+};
+
+const loginValidation = {
+  email: {
+    isEmail: true,
+    // custom: {
+    //   errorMessage:
+    //     'Email is invalid.',
+    //   options: (value: string) => {
+    //     const data = value ? isEmail() : true;
+    //     return value ? isIn(roleArray, value) : true;
+    //   },
+    // },
+    // customSanitizer: {
+    //   options: (value: string) => {
+    //     return JSON.parse(value);
+    //   },
+    // },
+    in: [RequestParameter.BODY],
+  },
+  name: {
+    // customSanitizer: {
+    //   options: (value: string) => {
+    //     return JSON.parse(value);
+    //   },
+    // },
+    in: [RequestParameter.BODY],
+  },
+  password: {
+    // customSanitizer: {
+    //   options: (value: string) => {
+    //     return JSON.parse(value);
+    //   },
+    // },
+    exists: {
+      errorMessage: 'Please Provide password',
+    },
     in: [RequestParameter.BODY],
   },
 };
@@ -90,11 +127,9 @@ const updateValidation = {
   role: {
     custom: {
       errorMessage:
-        'role should be from specified list => ' +
-        roleArray.toString(),
+        'role should be from specified list => ' + roleArray.toString(),
       options: (value: string) => {
         const data = value ? isIn(roleArray, value) : true;
-        console.log('111111111111111', data);
         return value ? isIn(roleArray, value) : true;
       },
     },
@@ -125,6 +160,9 @@ export default Object.freeze({
   },
   list: {
     ...listValidation,
+  },
+  login: {
+    ...loginValidation,
   },
   update: {
     ...idValidation,
