@@ -1,9 +1,6 @@
 import { Router } from 'express';
 
-import {
-  productRouter,
-  userRouter,
-} from './controllers';
+import { productRouter, userRouter } from './controllers';
 
 // tslint:disable-next-line:no-var-requires
 const appInfo = require('../package.json');

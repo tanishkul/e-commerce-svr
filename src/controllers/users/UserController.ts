@@ -83,6 +83,24 @@ class UserController {
   }
 
   /**
+   * Login existing User
+   * @param {string} fieldsResponse - FieldsResponse of User
+   * @param {string} id - Id of User Type
+   * @param {string} stackId - Id of Stack
+   * @returns {IUser}
+   */
+     public async login(req: Request, res: Response, next: NextFunction) {
+      try {
+        console.log('UserController - login', req.body);
+        const query = JSON.parse(JSON.stringify(req.body));
+        const result = await UserController.getInstance().userService.login(query);
+        return res.send(successHandler(SUCCESS_MSG.CREATE, result));
+      } catch (error) {
+        next(error);
+      }
+    }
+
+  /**
    * Update the User
    * @param {string} id - Id of User
    * @param {string} fieldsResponse - FieldsResponse of User
