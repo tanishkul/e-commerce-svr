@@ -66,7 +66,7 @@ class CartService {
   public async emptyCart(query: any) {
     let error = [];
     await this.get({ originalId: query.id });
-    const result = await this._cartRepository.update({...query, cart: []});
+    const result = await this._cartRepository.update({ ...query, cart: [] });
 
     if (!result) {
       error = createErrorResponse(

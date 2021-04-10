@@ -1,6 +1,6 @@
-import { SchemaDefinition, SchemaOptions } from "mongoose";
+import { SchemaDefinition, SchemaOptions } from 'mongoose';
 
-import VersionableSchema from "../../versionable/VersionableSchema";
+import VersionableSchema from '../../versionable/VersionableSchema';
 
 export default class CartSchema extends VersionableSchema {
   constructor(options: SchemaDefinition, collections: SchemaOptions) {

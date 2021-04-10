@@ -15,7 +15,7 @@ const configurations = Object.freeze({
   appServiceCode: envVars.APP_SERVICE_CODE || 'ADV',
   clientAuthorizationUrl: envVars.CLIENT_AUTHORIZATION_URL,
   connectorUIUrl: envVars.CONNECTOR_UI_URL,
-  corsOrigin: envVars.CORS_ORIGIN || `["http://localhost"]`,
+  corsOrigin: envVars.CORS_ORIGIN || `["http://localhost:3000/"]`,
   dataType: envVars.DATATYPE,
   env: envVars.NODE_ENV || 'dev',
   envName: envVars.ENVIRONMENT,

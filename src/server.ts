@@ -36,7 +36,7 @@ export default class Server {
     this.initCors();
     this.initJsonParser();
     this.initMethodOverride();
-    this.initconsole();
+    this.initConsole();
     this.setupRoutes();
 
     return this.app;
@@ -123,13 +123,7 @@ export default class Server {
    * Lets you to enable cors
    */
   private initCors() {
-    this.app.use(
-      cors({
-        optionsSuccessStatus: 200,
-        origin: JSON.parse(this.config.corsOrigin),
-        // credentials: true,
-      }),
-    );
+    this.app.use(cors());
   }
 
   /**
@@ -151,7 +145,7 @@ export default class Server {
   /**
    * Enabling console for Development Environment
    */
-  private initconsole() {
+  private initConsole() {
     morganBody(this.app);
   }
 
